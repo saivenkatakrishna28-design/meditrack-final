@@ -1,1 +1,15 @@
+MediTrack – Project Description
 
+MediTrack is a modern health-tech prototype that helps users schedule medicine reminders, log daily health metrics, store emergency contact details, and monitor wellness through a clean dashboard with a health score system.
+
+It is designed to solve a common real-world issue: many people forget to take medicines on time and do not regularly track essential health indicators such as blood pressure, sugar level, water intake, sleep, and weight. This affects daily health monitoring and emergency preparedness.
+
+The prototype allows users to:
+- Add medicine reminders with dosage, timing, frequency, and notes
+- Save daily health records including weight, blood pressure, sugar level, water intake, and sleep hours
+- Store emergency contact information
+- View a dashboard with total medicines, today’s water intake, latest sleep data, and a generated health score
+- Download a summary report
+- Use browser notification support for reminders
+
+MediTrack is built using HTML, CSS, JavaScript, and LocalStorage. It is simple, practical, user-friendly, and can be extended in the future with AI suggestions, cloud sync, wearable integration, and doctor appointment features.
