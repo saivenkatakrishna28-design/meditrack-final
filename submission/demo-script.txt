@@ -1,1 +1,19 @@
+MediTrack – Demo Video Script
 
+Hello everyone, this is my project MediTrack, a smart medicine reminder and basic health tracker developed as a health-tech prototype.
+
+This project addresses a common problem where people forget to take medicines on time and do not maintain simple daily health records.
+
+MediTrack allows users to add medicine reminders, log daily health metrics, save emergency contact information, and view a live dashboard with a health score.
+
+On the dashboard, users can see total medicines, today’s water intake, latest sleep data, health score, reminder status, and a recent health snapshot.
+
+In the workspace section, users can add medicine details, store health logs such as blood pressure, sugar, water, sleep, and weight, and save emergency contact details.
+
+In the records section, all medicines and health logs are displayed in an organized format for easy review and management.
+
+The application also supports browser reminders and allows the user to download a health summary report.
+
+This prototype is built using HTML, CSS, JavaScript, and LocalStorage, and it can be extended in the future with AI suggestions, cloud sync, wearable integration, and doctor appointment features.
+
+Thank you.
