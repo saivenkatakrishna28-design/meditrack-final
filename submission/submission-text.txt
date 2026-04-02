@@ -1,1 +1,28 @@
+MediTrack – Smart Medicine Reminder & Basic Health Tracker
 
+One-line Tagline
+A health-tech prototype that helps users manage medicine reminders, monitor daily health data, and stay prepared during emergencies.
+
+Final Submission Text
+MediTrack is a health-tech prototype designed to improve medication adherence and daily health monitoring through a simple, accessible, and user-friendly interface. The prototype allows users to add medicine reminders with dosage, frequency, and timing details, log daily health metrics such as weight, blood pressure, sugar level, water intake, and sleep hours, and store emergency contact information for quick access.
+
+The dashboard presents a live summary of the user’s current records, including total medicines, today’s water intake, latest sleep data, and a generated health score based on recent health entries. In addition, the system supports browser-based reminder notifications and downloadable summary reporting.
+
+The main objective of this prototype is to solve a common real-world problem: many individuals forget medicines and do not consistently track essential health indicators. MediTrack offers a clean and practical solution that can later be extended with AI-based suggestions, cloud storage, wearable integration, and doctor appointment management.
+
+This project is built using HTML, CSS, JavaScript, and LocalStorage. It demonstrates strong practical value, clear healthcare relevance, and future scalability.
+
+Tech Stack
+HTML, CSS, JavaScript, LocalStorage
+
+Problem Statement
+Many individuals forget to take medicines on time and do not consistently record basic daily health metrics, which affects routine monitoring and emergency preparedness.
+
+Solution
+MediTrack provides a simple and user-friendly digital solution for medicine scheduling, health logging, dashboard monitoring, and emergency contact management in one place.
+
+Innovation
+The project combines medicine reminders, health monitoring, and dashboard-based wellness tracking in a polished prototype that focuses on real-world healthcare utility and future scalability.
+
+Future Scope
+Future improvements include AI-based health suggestions, SMS and email reminders, doctor appointment integration, cloud storage, wearable device support, and family health dashboards.
