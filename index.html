@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MediTrack | Smart Medicine Reminder & Health Tracker</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+  <div class="noise"></div>
+
+  <div id="toastContainer" class="toast-container"></div>
+
+  <header class="hero">
+    <div class="container">
+      <nav class="nav">
+        <div class="brand">
+          <div class="brand-mark">+</div>
+          <div>
+            <h1>MediTrack</h1>
+            <p>Smart Medicine Reminder & Basic Health Tracker</p>
+          </div>
+        </div>
+
+        <div class="nav-links">
+          <a href="#dashboard">Dashboard</a>
+          <a href="#workspace">Workspace</a>
+          <a href="#records">Records</a>
+          <a href="#impact">Impact</a>
+        </div>
+      </nav>
+
+      <div class="hero-grid">
+        <div class="glass hero-copy">
+          <span class="eyebrow">Health-Tech Prototype</span>
+          <h2>Track medicines. Monitor health. Stay ready.</h2>
+          <p class="hero-text">
+            MediTrack helps users manage medicine reminders, log daily health metrics,
+            store emergency contacts, and view a simple health summary through a modern,
+            user-friendly interface.
+          </p>
+
+          <div class="cta-row">
+            <button id="enableNotificationsBtn" class="btn btn-primary">Enable Reminders</button>
+            <button id="loadDemoBtn" class="btn btn-secondary">Load Demo Data</button>
+            <button id="downloadReportBtn" class="btn btn-secondary">Download Summary</button>
+          </div>
+
+          <div class="hero-tags">
+            <span>Medicine Scheduling</span>
+            <span>Health Logging</span>
+            <span>Emergency Readiness</span>
+            <span>Local Data Storage</span>
+          </div>
+        </div>
+
+        <div class="glass hero-panel">
+          <div class="panel-head">
+            <div>
+              <p class="panel-label">Prototype Highlights</p>
+              <h3>Real-world utility with a polished UI</h3>
+            </div>
+            <span id="riskBadge" class="risk-badge neutral">No Data</span>
+          </div>
+
+          <div class="mini-grid">
+            <div class="mini-card">
+              <p>Upcoming Reminder</p>
+              <h4 id="upcomingReminder">No reminder scheduled yet</h4>
+            </div>
+            <div class="mini-card">
+              <p>Wellness Status</p>
+              <h4 id="wellnessText">Add your first health log to generate insights</h4>
+            </div>
+          </div>
+
+          <div class="feature-list">
+            <div class="feature-item">
+              <span class="feature-dot"></span>
+              <p>Simple dashboard for medicines, water, sleep, and health score</p>
+            </div>
+            <div class="feature-item">
+              <span class="feature-dot"></span>
+              <p>Daily health logs for weight, BP, sugar level, water intake, and sleep</p>
+            </div>
+            <div class="feature-item">
+              <span class="feature-dot"></span>
+              <p>Emergency contact details stored for quick access</p>
+            </div>
+            <div class="feature-item">
+              <span class="feature-dot"></span>
+              <p>Submission-ready design with practical future scope</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container main-content">
+    <section id="dashboard" class="section">
+      <div class="section-head">
+        <div>
+          <span class="section-kicker">Overview</span>
+          <h2>Health Dashboard</h2>
+        </div>
+        <p>Live snapshot of stored medicine and health records</p>
+      </div>
+
+      <div class="stats-grid">
+        <div class="glass stat-card">
+          <p>Total Medicines</p>
+          <h3 id="totalMeds">0</h3>
+          <span>Active scheduled medicines</span>
+        </div>
+
+        <div class="glass stat-card">
+          <p>Today's Water Intake</p>
+          <h3 id="todayWater">0.0 L</h3>
+          <span>Sum of today's logs</span>
+        </div>
+
+        <div class="glass stat-card">
+          <p>Latest Sleep</p>
+          <h3 id="latestSleep">0.0 hrs</h3>
+          <span>Most recent recorded sleep</span>
+        </div>
+
+        <div class="glass stat-card score-card">
+          <div class="score-top">
+            <div>
+              <p>Health Score</p>
+              <h3 id="healthScore">0</h3>
+            </div>
+            <span class="score-unit">/100</span>
+          </div>
+          <div class="score-bar">
+            <span id="scoreBar"></span>
+          </div>
+          <span id="scoreMessage">Waiting for health data</span>
+        </div>
+      </div>
+
+      <div class="insights-grid">
+        <div class="glass insight-card">
+          <div class="insight-top">
+            <h3>Reminder Center</h3>
+            <span id="notificationStatus" class="status-chip">Notifications not enabled</span>
+          </div>
+          <p id="reminderDescription">
+            Add medicines and enable browser notifications to receive reminders.
+          </p>
+        </div>
+
+        <div class="glass insight-card">
+          <div class="insight-top">
+            <h3>Latest Health Snapshot</h3>
+            <span class="status-chip secondary">Auto-generated insight</span>
+          </div>
+          <div class="snapshot-grid">
+            <div>
+              <p class="snap-label">Last BP</p>
+              <h4 id="latestBP">--</h4>
+            </div>
+            <div>
+              <p class="snap-label">Last Sugar</p>
+              <h4 id="latestSugar">--</h4>
+            </div>
+            <div>
+              <p class="snap-label">Emergency Contact</p>
+              <h4 id="emergencyStatus">Not Saved</h4>
+            </div>
+            <div>
+              <p class="snap-label">Last Weight</p>
+              <h4 id="latestWeight">--</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="workspace" class="section">
+      <div class="section-head">
+        <div>
+          <span class="section-kicker">Input Area</span>
+          <h2>Workspace</h2>
+        </div>
+        <p>Add medicines, daily health data, and emergency details</p>
+      </div>
+
+      <div class="forms-grid">
+        <div class="glass form-card">
+          <h3>Add Medicine Reminder</h3>
+          <form id="medicineForm">
+            <div class="input-group">
+              <label for="medicineName">Medicine Name</label>
+              <input type="text" id="medicineName" placeholder="Paracetamol" required>
+            </div>
+
+            <div class="grid-2">
+              <div class="input-group">
+                <label for="dosage">Dosage</label>
+                <input type="text" id="dosage" placeholder="500 mg" required>
+              </div>
+              <div class="input-group">
+                <label for="medicineTime">Time</label>
+                <input type="time" id="medicineTime" required>
+              </div>
+            </div>
+
+            <div class="grid-2">
+              <div class="input-group">
+                <label for="frequency">Frequency</label>
+                <select id="frequency" required>
+                  <option value="">Select</option>
+                  <option value="Once Daily">Once Daily</option>
+                  <option value="Twice Daily">Twice Daily</option>
+                  <option value="Three Times Daily">Three Times Daily</option>
+                  <option value="Weekly">Weekly</option>
+                  <option value="As Needed">As Needed</option>
+                </select>
+              </div>
+              <div class="input-group">
+                <label for="medicineNotes">Notes</label>
+                <input type="text" id="medicineNotes" placeholder="After food">
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-full">Add Medicine</button>
+          </form>
+        </div>
+
+        <div class="glass form-card">
+          <h3>Daily Health Log</h3>
+          <form id="healthForm">
+            <div class="input-group">
+              <label for="recordDate">Date</label>
+              <input type="date" id="recordDate" required>
+            </div>
+
+            <div class="grid-2">
+              <div class="input-group">
+                <label for="weight">Weight (kg)</label>
+                <input type="number" step="0.1" id="weight" placeholder="65.5" required>
+              </div>
+              <div class="input-group">
+                <label for="bp">Blood Pressure</label>
+                <input type="text" id="bp" placeholder="120/80" required>
+              </div>
+            </div>
+
+            <div class="grid-2">
+              <div class="input-group">
+                <label for="sugar">Sugar Level (mg/dL)</label>
+                <input type="number" id="sugar" placeholder="95" required>
+              </div>
+              <div class="input-group">
+                <label for="water">Water Intake (L)</label>
+                <input type="number" step="0.1" id="water" placeholder="2.5" required>
+              </div>
+            </div>
+
+            <div class="input-group">
+              <label for="sleep">Sleep Hours</label>
+              <input type="number" step="0.1" id="sleep" placeholder="7.5" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-full">Save Health Log</button>
+          </form>
+        </div>
+
+        <div class="glass form-card">
+          <h3>Emergency Contact</h3>
+          <form id="contactForm">
+            <div class="input-group">
+              <label for="contactName">Full Name</label>
+              <input type="text" id="contactName" placeholder="John Doe" required>
+            </div>
+
+            <div class="grid-2">
+              <div class="input-group">
+                <label for="relation">Relation</label>
+                <input type="text" id="relation" placeholder="Father / Friend / Doctor" required>
+              </div>
+              <div class="input-group">
+                <label for="contactPhone">Phone</label>
+                <input type="tel" id="contactPhone" placeholder="+91 9876543210" required>
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-full">Save Emergency Contact</button>
+          </form>
+
+          <div class="saved-block">
+            <div class="saved-block-head">
+              <h4>Saved Contact</h4>
+            </div>
+            <div id="contactDisplay" class="empty-box">No emergency contact saved yet.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="records" class="section">
+      <div class="section-head">
+        <div>
+          <span class="section-kicker">Stored Data</span>
+          <h2>Records</h2>
+        </div>
+        <p>Review and manage all saved items</p>
+      </div>
+
+      <div class="records-grid">
+        <div class="glass records-card">
+          <div class="records-head">
+            <h3>Medicine Records</h3>
+            <button id="clearMedsBtn" class="btn btn-danger btn-small">Clear All</button>
+          </div>
+          <div id="medicineList" class="records-list empty-box">No medicine reminders added yet.</div>
+        </div>
+
+        <div class="glass records-card">
+          <div class="records-head">
+            <h3>Health Records</h3>
+            <button id="clearHealthBtn" class="btn btn-danger btn-small">Clear All</button>
+          </div>
+          <div id="healthList" class="records-list empty-box">No health records saved yet.</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="impact" class="section">
+      <div class="section-head">
+        <div>
+          <span class="section-kicker">Why It Matters</span>
+          <h2>Project Strength</h2>
+        </div>
+        <p>This prototype focuses on usability, relevance, and real-world value</p>
+      </div>
+
+      <div class="impact-grid">
+        <div class="glass impact-card">
+          <h3>Medication Adherence</h3>
+          <p>Users are less likely to miss doses when medicines are clearly scheduled and tracked in one place.</p>
+        </div>
+
+        <div class="glass impact-card">
+          <h3>Daily Monitoring</h3>
+          <p>Health logs make it easier to observe trends in sleep, hydration, BP, sugar, and weight over time.</p>
+        </div>
+
+        <div class="glass impact-card">
+          <h3>Emergency Readiness</h3>
+          <p>Emergency contact details are kept accessible for faster action when support is needed.</p>
+        </div>
+
+        <div class="glass impact-card">
+          <h3>Scalable Foundation</h3>
+          <p>The prototype can later expand into AI recommendations, doctor integration, cloud sync, and wearable support.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-wrap">
+      <p>MediTrack • Health-Tech Prototype</p>
+      <p>Built for coding round submission</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
